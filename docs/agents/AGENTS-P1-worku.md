@@ -25,7 +25,7 @@ Version 1.2 — 13 November 2026 — aligned with documents 01–05 v1.2
 > - Removed from your files: `SearchResponse`, `RankingPolicy`, `CsvRow`, `UserRowMapper`, `ConsoleApp`, the in-memory repositories, `FixedClock` and the logging; tasks T06b, T18 and T31 are gone (`support/FakeLlmClient` moved to P2).
 > - Added: `SearchResult implements Comparable<SearchResult>` (BR-10); `RowMapper<T>` now works on `Map<String,String>` rows and has a `default mapAll`; `FileUserRepository implements UserRepository, RowMapper<User>`.
 > - `SearchService` has one operation, `searchByName(text, district or null)`; no filters, no woreda, no location-scoring interface. `StartMenu` (P5) now routes by role, so there is no `ConsoleApp`.
-> - Exceptions are unchecked; `CsvFile` throws `IOException` and repositories translate it. Today's management task: the **v1.2 scope agreement** with the instructor (13 Nov).
+> - Exceptions are unchecked; `CsvFile` throws `IOException` and repositories translate it. Management task: the **v1.2 scope agreement** with the instructor (15 Nov).
 
 ---
 
@@ -50,7 +50,7 @@ Version 1.2 — 13 November 2026 — aligned with documents 01–05 v1.2
 
 ## Part 3 — Project Summary
 
-**MedFinder** is a Java **command-line** application for **Addis Ababa** that helps a patient find out, before travelling, which **verified pharmacy** has a medicine in stock, at what price, how recently that stock was confirmed, and whether the pharmacy is in the customer's own sub-city. It is an **Object-Oriented Programming course project** (chapters 1–6) built by five students in four weeks (11 Nov – 11 Dec 2026): **57 classes, about 2,000–2,400 lines of code** (tests not counted).
+**MedFinder** is a Java **command-line** application for **Addis Ababa** that helps a patient find out, before travelling, which **verified pharmacy** has a medicine in stock, at what price, how recently that stock was confirmed, and whether the pharmacy is in the customer's own sub-city. It is an **Object-Oriented Programming course project** (chapters 1–6) built by five students in four weeks (14 Nov – 11 Dec 2026): **57 classes, about 2,000–2,400 lines of code** (tests not counted).
 
 | Who | What they do |
 |---|---|
@@ -82,9 +82,9 @@ The developer will give you these files (in `docs/` of the repository, or pasted
 
 | Milestone | Date | Meaning |
 |---|---|---|
-| M1 | 17 Nov | Project builds; model, exceptions, console helper, abstract `Menu`, `CsvFile` and repository interfaces exist; sample data ready; AI "hello" call works from Java |
-| M2 | 24 Nov | All file repositories load the seed data; login, pharmacy registration and approval, stock add work through services; search and AI parsing work in tests |
-| M3 | 1 Dec | **Feature complete** — every Must requirement usable from menus. No new features after this. |
+| M1 | 19 Nov | Project builds; model, exceptions, console helper, abstract `Menu`, `CsvFile` and repository interfaces exist; sample data ready; AI "hello" call works from Java |
+| M2 | 26 Nov | All file repositories load the seed data; login, pharmacy registration and approval, stock add work through services; search and AI parsing work in tests |
+| M3 | 2 Dec | **Feature complete** — every Must requirement usable from menus. No new features after this. |
 | M4 | 8 Dec | Release candidate; all AT scenarios pass; slides and manual ready |
 | Delivery | 11 Dec | Submission and presentation |
 
@@ -229,15 +229,15 @@ Full details and "Done when" criteria: document 04, Section 5.
 
 | ID | Task | Pred. | Due | Done when |
 |---|---|---|---|---|
-| T01 | Repository, Maven project, `.gitignore`, package folders, README stub, branch rules | — | 12 Nov | Everyone can clone and run `mvn clean test` |
-| T02 | Gson and JUnit 5; packaging into `target/medfinder.jar` | T01 | 12 Nov | `java -jar` starts a placeholder |
-| T06 | Repository interfaces (5) | T05a (P4) | 13 Nov | Match HLD 4.9 |
-| T07 | `CsvFile` (read by header into `List<Map<String,String>>`, safe write, quoting; try-with-resources; `throws IOException`) and `RowMapper<T>` with `default mapAll` | T01 | 15 Nov | Round trip with commas and quotes; columns in a different order read correctly; a malformed row is skipped with a warning |
-| T13 | `FileUserRepository implements UserRepository, RowMapper<User>` — **the pattern every file repository copies** | T05a, T06, T07 | 17 Nov | Loads seed users as `Pharmacist`/`Administrator`; saves and reloads |
-| T17 | `TextSimilarity` (static; `int[][]` Levenshtein) with tests ("amoxcillin" example) | T01 | 19 Nov | All sample cases pass |
-| T21 | `AppContext`, `Main` (`try … finally`), `SeedDataCopier` (`ageHours` → `lastConfirmedAt`) | T13, T16 (P2) | 22 Nov | A fresh run loads files and shows Fresh, Aging and Stale records |
-| T29 | `SearchService` (HLD 7.3) and `SearchResult` | T14, T15 (P5), T17, T08 (P4) | 26 Nov | Correct order: in stock first, same sub-city first, score, price, name; unverified excluded |
-| T38 | First end-to-end run on a clean checkout; defect list | M3 | 2 Dec | Defects logged with owner |
+| T01 | Repository, Maven project, `.gitignore`, package folders, README stub, branch rules | — | 14 Nov | Everyone can clone and run `mvn clean test` |
+| T02 | Gson and JUnit 5; packaging into `target/medfinder.jar` | T01 | 14 Nov | `java -jar` starts a placeholder |
+| T06 | Repository interfaces (5) | T05a (P4) | 15 Nov | Match HLD 4.9 |
+| T07 | `CsvFile` (read by header into `List<Map<String,String>>`, safe write, quoting; try-with-resources; `throws IOException`) and `RowMapper<T>` with `default mapAll` | T01 | 17 Nov | Round trip with commas and quotes; columns in a different order read correctly; a malformed row is skipped with a warning |
+| T13 | `FileUserRepository implements UserRepository, RowMapper<User>` — **the pattern every file repository copies** | T05a, T06, T07 | 19 Nov | Loads seed users as `Pharmacist`/`Administrator`; saves and reloads |
+| T17 | `TextSimilarity` (static; `int[][]` Levenshtein) with tests ("amoxcillin" example) | T01 | 21 Nov | All sample cases pass |
+| T21 | `AppContext`, `Main` (`try … finally`), `SeedDataCopier` (`ageHours` → `lastConfirmedAt`) | T13, T16 (P2) | 24 Nov | A fresh run loads files and shows Fresh, Aging and Stale records |
+| T29 | `SearchService` (HLD 7.3) and `SearchResult` | T14, T15 (P5), T17, T08 (P4) | 28 Nov | Correct order: in stock first, same sub-city first, score, price, name; unverified excluded |
+| T38 | First end-to-end run on a clean checkout; defect list | M3 | 3 Dec | Defects logged with owner |
 | T41 | Check the result order with the sample data; adjust constants if needed (with P5) | T38 | 4 Dec | Orders look sensible in AT-07 to AT-11 |
 | T43 | README complete (build, run, settings, demo accounts, reset data) | M3 | 5 Dec | A new person can run the program from the README alone |
 | T40 | Fix defects in your own files | T38 | 7 Dec | No open Must defect |
@@ -245,11 +245,11 @@ Full details and "Done when" criteria: document 04, Section 5.
 | T47 | Rehearsal (twice, timed, with P3); every member explains their own classes | T45 (P3) | 9–10 Dec | Fits the allowed time |
 | T48 | Submission package handed in | T46 | 11 Dec | Confirmed by the instructor |
 
-**Management (document 04, Section 3):** create the GitHub repository and invite all members (12 Nov); confirm the delivery date and what is submitted, **get the instructor's agreement to the v1.2 scope** (SRS Section 7), and confirm that a command-line application is acceptable (all 13 Nov). Also: daily check-in, merging, schedule, risks and cut decisions (document 04, Section 11).
+**Management (document 04, Section 3):** create the GitHub repository and invite all members (14 Nov); confirm the delivery date and what is submitted, **get the instructor's agreement to the v1.2 scope** (SRS Section 7), and confirm that a command-line application is acceptable (all 15 Nov). Also: daily check-in, merging, schedule, risks and cut decisions (document 04, Section 11).
 
-**Early handoffs others are waiting for:** project skeleton (12 Nov) → everyone; repository interfaces (13 Nov) → P3, P5; `CsvFile` (15 Nov) → P5; `FileUserRepository` pattern (17 Nov) → P5; `TextSimilarity` (19 Nov) → P5 (`matchDistrict`); `AppContext` (22 Nov); `SearchService` (26 Nov) → P2. The interfaces, the file repository pattern and `SearchService` are on the **critical path**.
+**Early handoffs others are waiting for:** project skeleton (14 Nov) → everyone; repository interfaces (15 Nov) → P3, P5; `CsvFile` (17 Nov) → P5; `FileUserRepository` pattern (19 Nov) → P5; `TextSimilarity` (21 Nov) → P5 (`matchDistrict`); `AppContext` (24 Nov); `SearchService` (28 Nov) → P2. The interfaces, the file repository pattern and `SearchService` are on the **critical path**.
 
-**What you need from others:** model skeleton, `Location`, `MatchLevel` (P4, 13 Nov); `FreshnessClassifier` (P4, 14 Nov); seed data (P5, 16 Nov); AI contracts (P2, 17 Nov, for review); `AppConfig` (P2, 19 Nov); the four other file repositories (P5, 19–20 Nov); all services as they are merged (P3, P5, P2, 21–27 Nov).
+**What you need from others:** model skeleton, `Location`, `MatchLevel` (P4, 15 Nov); `FreshnessClassifier` (P4, 16 Nov); seed data (P5, 18 Nov); AI contracts (P2, 19 Nov, for review); `AppConfig` (P2, 21 Nov); the four other file repositories (P5, 21–22 Nov); all services as they are merged (P3, P5, P2, 23–29 Nov).
 
 ## Part 9 — Design Rules for Your Classes
 
@@ -263,7 +263,7 @@ Full details and "Done when" criteria: document 04, Section 5.
 | `StockRepository` | `List<StockRecord> findByPharmacy(int)` · `List<StockRecord> findByMedicine(int)` · `StockRecord find(int pharmacyId, int medicineId)` · `void save(StockRecord)` · `void delete(int pharmacyId, int medicineId)` · `void saveAll(List<StockRecord>)` |
 | `LocalityRepository` | `List<String> findDistricts(String region)` · `boolean exists(String region, String district)` |
 
-Publish these on 13 Nov so others can compile; they become the contract.
+Publish these on 15 Nov so others can compile; they become the contract.
 
 **CSV core (T07, HLD 4.9, 5.3).**
 - `RowMapper<T>` is the **only generic type declared in the project**: `String[] headers()`, `T fromRow(Map<String,String> row)`, `Map<String,String> toRow(T entity)`, and `default List<T> mapAll(List<Map<String,String>> rows)`, which converts every row and **skips a malformed row with a warning** (FR-DAT-03). There is no log file in v1.2; decide how the warning is shown and document it in the Javadoc.

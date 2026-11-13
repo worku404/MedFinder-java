@@ -106,7 +106,7 @@ Java 17 or later on Windows, Linux or macOS; a terminal supporting standard text
 | C-02 | Data stored in local delimited text (CSV) files; no database server |
 | C-03 | External libraries limited to a JSON library (Gson) and JUnit 5 for tests |
 | C-04 | The LLM is reached through a web API using Java's built-in HTTP client |
-| C-05 | The delivery deadline is about one month after 11 November 2026 (planning date: 11 December 2026, to be confirmed with the instructor) |
+| C-05 | The delivery deadline is about one month after 14 November 2026 (planning date: 11 December 2026, to be confirmed with the instructor) |
 | C-06 | The development team has five members with mixed Java experience; the design must stay simple and well separated |
 | C-07 | The code is built mainly with the concepts of course chapters 1–6. Concepts from outside those chapters are limited to those listed in document 02, Section 15.3 |
 

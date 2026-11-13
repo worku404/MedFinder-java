@@ -69,13 +69,13 @@ R = responsible, S = supports, V = reviews.
 | Search engine | T17, T29: `TextSimilarity`, `SearchService`, `SearchResult` |
 | Wiring | T21: `AppContext`, `Main`, `SeedDataCopier` |
 | Integration and release | T38, T41, T43, T46, T47, T48 |
-| Management | Daily check-in, merging, schedule and risks, instructor communication (**v1.2 scope agreement on 13 Nov**), cut decisions |
+| Management | Daily check-in, merging, schedule and risks, instructor communication (**v1.2 scope agreement on 15 Nov**), cut decisions |
 
 **Concepts to explain:** interfaces and a class implementing two interfaces (`FileUserRepository`); generic interface with a `default` method (`RowMapper`); checked `IOException`, try-with-resources, exception translation (`CsvFile`); 2D arrays and nested loops (`TextSimilarity`); static methods; `Comparator` and immutable `SearchResult`; composition and constructor injection (`AppContext`); `try … finally` (`Main`).
 
-**Needs from others:** model skeleton and `Location` (P4, 13 Nov); `FreshnessClassifier` (P4, 14 Nov); `AppConfig` (P2, 19 Nov); four file repositories (P5, 19–20 Nov); AI contracts (P2, 17 Nov, for review).
+**Needs from others:** model skeleton and `Location` (P4, 15 Nov); `FreshnessClassifier` (P4, 16 Nov); `AppConfig` (P2, 21 Nov); four file repositories (P5, 21–22 Nov); AI contracts (P2, 19 Nov, for review).
 
-**Provides to others:** project skeleton (12 Nov); repository interfaces (13 Nov); `CsvFile` (15 Nov) and the file repository pattern (17 Nov); `AppContext` (22 Nov); `SearchService` (26 Nov); reviews and merges.
+**Provides to others:** project skeleton (14 Nov); repository interfaces (15 Nov); `CsvFile` (17 Nov) and the file repository pattern (19 Nov); `AppContext` (24 Nov); `SearchService` (28 Nov); reviews and merges.
 
 ### 4.2 P2 — Tensaye Daniel (AI Integration Lead, Customer-Facing Menus)
 
@@ -93,9 +93,9 @@ R = responsible, S = supports, V = reviews.
 
 **Concepts to explain:** interface and polymorphism (`LlmClient` with `HttpLlmClient` and the fake); multi-catch and exception chaining (`HttpLlmClient`); `StringBuilder` (`PromptBuilder`); immutable class with static factory methods and a nested enum (`AiOutcome`); `public static final` constants and `import static` (`AppConfig`); custom exception (`AiServiceException`); `Menu` subclasses overriding abstract methods.
 
-**Needs from others:** exception base class (P4, 13 Nov); `ConsoleHelper` and `Menu` (P3, 16–17 Nov); `CatalogueService` and `LocalityService` (P5, 21 Nov); `SearchService` (P1, 26 Nov; signature fixed in HLD 4.7).
+**Needs from others:** exception base class (P4, 15 Nov); `ConsoleHelper` and `Menu` (P3, 18–19 Nov); `CatalogueService` and `LocalityService` (P5, 23 Nov); `SearchService` (P1, 28 Nov; signature fixed in HLD 4.7).
 
-**Provides to others:** AI contracts (17 Nov); `AppConfig` (19 Nov) to P1, P3, P5; an empty `CustomerMenu` (25 Nov) so `StartMenu` can open it; working `AiAssistantService` (27 Nov); the AI demonstration plan.
+**Provides to others:** AI contracts (19 Nov); `AppConfig` (21 Nov) to P1, P3, P5; an empty `CustomerMenu` (27 Nov) so `StartMenu` can open it; working `AiAssistantService` (29 Nov); the AI demonstration plan.
 
 ### 4.3 P3 — Wubet Tamrat (Services, Console Foundation, Presentation)
 
@@ -111,9 +111,9 @@ R = responsible, S = supports, V = reviews.
 
 **Concepts to explain:** abstract class and Template Method with a `final` method (`Menu.run()`); ordered catch blocks, subclass before superclass (`Menu`); `AutoCloseable` and method overloading (`ConsoleHelper`); `Scanner` and `NumberFormatException`; `instanceof` pattern matching as a justified downcast (`AuthService.requirePharmacist`); heterogeneous `List<User>` (`listUsers`); composition (`AuthService` has a `Session`); `throw` of custom exceptions in services.
 
-**Needs from others:** model skeleton and validation (P4, 13 and 16 Nov); exceptions (P4, 13 Nov); repository interfaces (P1, 13 Nov); `FileUserRepository` (P1, 17 Nov); `FreshnessClassifier` (P4, 14 Nov); `LocalityService` (P5, 21 Nov).
+**Needs from others:** model skeleton and validation (P4, 15 and 18 Nov); exceptions (P4, 15 Nov); repository interfaces (P1, 15 Nov); `FileUserRepository` (P1, 19 Nov); `FreshnessClassifier` (P4, 16 Nov); `LocalityService` (P5, 23 Nov).
 
-**Provides to others:** `PasswordHasher` (14 Nov, for seed hashes); `ConsoleHelper` (16 Nov) and `Menu` (17 Nov) for all menu authors; `AuthService` (21 Nov); `PharmacyService` (23 Nov); `InventoryService` (26 Nov); slides and script (8 Dec).
+**Provides to others:** `PasswordHasher` (16 Nov, for seed hashes); `ConsoleHelper` (18 Nov) and `Menu` (19 Nov) for all menu authors; `AuthService` (23 Nov); `PharmacyService` (25 Nov); `InventoryService` (28 Nov); slides and script (8 Dec).
 
 ### 4.4 P4 — Tesnim Abdi (Model, Exceptions, Pharmacist Menu, Testing)
 
@@ -129,11 +129,11 @@ R = responsible, S = supports, V = reviews.
 
 **Concepts to explain:** abstract class with an abstract method and subclasses calling `super(...)` (`User`); overriding `toString`, `equals`, `hashCode` with `@Override`; `final` class and `final` fields (`Location`); encapsulation and invariants (`Pharmacy` status methods, no setters); constructor overloading and `this(...)` chaining (`StockRecord`, `Medicine`); exception hierarchy with four constructors (`MedFinderException`); enums with fields; a pure static function (`FreshnessClassifier`).
 
-**Needs from others:** project skeleton (P1, 12 Nov); `ConsoleHelper` and `Menu` (P3, 16–17 Nov); `LocalityService` (P5, 21 Nov); `PharmacyService` (P3, 23 Nov); `InventoryService` (P3, 26 Nov); `CatalogueService` (P5, 21 Nov).
+**Needs from others:** project skeleton (P1, 14 Nov); `ConsoleHelper` and `Menu` (P3, 18–19 Nov); `LocalityService` (P5, 23 Nov); `PharmacyService` (P3, 25 Nov); `InventoryService` (P3, 28 Nov); `CatalogueService` (P5, 23 Nov).
 
-**Provides to others:** exceptions and model skeleton (13 Nov — the earliest and most widely needed handoff); `Location` and `MatchLevel` (13 Nov); `FreshnessClassifier` (14 Nov); validated model with status rules (16 Nov).
+**Provides to others:** exceptions and model skeleton (15 Nov — the earliest and most widely needed handoff); `Location` and `MatchLevel` (15 Nov); `FreshnessClassifier` (16 Nov); validated model with status rules (18 Nov).
 
-**First three days:** exceptions and enums (13 Nov); model skeleton with fields and constructors only, validation later (13 Nov). If late by more than one day, tell P1. Pair sessions with P3 start on 12 Nov.
+**First three days:** exceptions and enums (15 Nov); model skeleton with fields and constructors only, validation later (15 Nov). If late by more than one day, tell P1. Pair sessions with P3 start on 14 Nov.
 
 ### 4.5 P5 — Yamsin Mustefa (Data, Four Repositories, Locality and Catalogue, Two Menus, Test Cases)
 
@@ -149,11 +149,11 @@ R = responsible, S = supports, V = reviews.
 
 **Concepts to explain:** implementing two interfaces in one class and overriding interface methods (file repositories); reading and converting CSV values (`Integer.parseInt`, `Double.parseDouble`, `Instant.parse`); `switch` on an enum to choose the next menu, with dynamic dispatch of `run()` (`StartMenu`); string methods and similarity matching (`LocalityService.matchDistrict`); polymorphic printing of a `List<User>` (`AdministratorMenu`).
 
-**Needs from others:** `PasswordHasher` (P3, 14 Nov); column layouts (document 02, Section 5); `CsvFile` (P1, 15 Nov) and `FileUserRepository` pattern (P1, 17 Nov); `TextSimilarity` (P1, 19 Nov); `ConsoleHelper` and `Menu` (P3, 16–17 Nov); `AuthService` (P3, 21 Nov); `PharmacyService` (P3, 23 Nov); empty `CustomerMenu` (P2, 25 Nov).
+**Needs from others:** `PasswordHasher` (P3, 16 Nov); column layouts (document 02, Section 5); `CsvFile` (P1, 17 Nov) and `FileUserRepository` pattern (P1, 19 Nov); `TextSimilarity` (P1, 21 Nov); `ConsoleHelper` and `Menu` (P3, 18–19 Nov); `AuthService` (P3, 23 Nov); `PharmacyService` (P3, 25 Nov); empty `CustomerMenu` (P2, 27 Nov).
 
-**Provides to others:** seed data (16 Nov); four file repositories (19–20 Nov) needed by `SearchService` and all services; `LocalityService` and `CatalogueService` (21 Nov); test scenarios (27 Nov); results of scenario runs (5 Dec).
+**Provides to others:** seed data (18 Nov); four file repositories (21–22 Nov) needed by `SearchService` and all services; `LocalityService` and `CatalogueService` (23 Nov); test scenarios (29 Nov); results of scenario runs (5 Dec).
 
-**First three days:** medicine list of at least 40 entries (13–14 Nov); sub-city list (confirm with the team); the 12 pharmacies of document 03, Section 6.2; ask P3 for the hashing helper on 14 Nov. Pair sessions with P3 and P4 start on 12 Nov.
+**First three days:** medicine list of at least 40 entries (15–16 Nov); sub-city list (confirm with the team); the 12 pharmacies of document 03, Section 6.2; ask P3 for the hashing helper on 16 Nov. Pair sessions with P3 and P4 start on 14 Nov.
 
 ## 5. Who Depends on Whom
 
@@ -161,31 +161,31 @@ Each row reads: *the person on the left needs this from the person in the third 
 
 | Who needs it | What | From | Due |
 |---|---|---|---|
-| Everyone | Project skeleton, build, branch rules | P1 | 12 Nov |
-| P1, P2, P3, P5 | Exceptions and model skeleton, `Location`, `MatchLevel` | P4 | 13 Nov |
-| P3, P5 | Repository interfaces | P1 | 13 Nov |
-| P5 | `PasswordHasher` (seed hashes) | P3 | 14 Nov |
-| P1 (`SearchService`), P3 (`InventoryService`), P4 (`PharmacistMenu`) | `FreshnessClassifier` | P4 | 14 Nov |
-| P5 | `CsvFile` | P1 | 15 Nov |
-| P1, P3, P5 | Validated model with `Pharmacy` status rules | P4 | 16 Nov |
-| P1, P3 | Seed data | P5 | 16 Nov |
-| All menu authors (P2, P4, P5) | `ConsoleHelper` | P3 | 16 Nov |
-| All menu authors (P2, P4, P5) | Abstract `Menu` | P3 | 17 Nov |
-| P5 | `FileUserRepository` as the pattern | P1 | 17 Nov |
-| P1 (review) | AI contracts | P2 | 17 Nov |
-| P1, P3, P5 | `AppConfig` | P2 | 19 Nov |
-| P5 (`LocalityService`) | `TextSimilarity` | P1 | 19 Nov |
-| P1 (`SearchService`), P3 (services) | Four file repositories | P5 | 19–20 Nov |
-| P3 (`PharmacyService`), P2 (`CustomerMenu`, `AiModeMenu`), P4 (`PharmacistMenu`) | `LocalityService` | P5 | 21 Nov |
-| P2 (`CustomerMenu`), P4 (`PharmacistMenu`) | `CatalogueService` | P5 | 21 Nov |
-| P5 (`StartMenu`, `AdministratorMenu`) | `AuthService`, `Session` | P3 | 21 Nov |
-| P1 (`AppContext` wiring) | All services as they are merged | P3, P5, P2 | 21–27 Nov |
-| P4 (`PharmacistMenu`), P5 (`AdministratorMenu`) | `PharmacyService` | P3 | 23 Nov |
-| P5 (`StartMenu`) | Empty `CustomerMenu` | P2 | 25 Nov |
-| P4 (`PharmacistMenu`) | `InventoryService` | P3 | 26 Nov |
-| P2 (`CustomerMenu`, `AiModeMenu`) | `SearchService` | P1 | 26 Nov |
-| P5 (running test cases), P3 (slides) | Finished menus and features | all | 1 Dec (M3) |
-| Everyone | Defect list and priorities | P1 | 2 Dec |
+| Everyone | Project skeleton, build, branch rules | P1 | 14 Nov |
+| P1, P2, P3, P5 | Exceptions and model skeleton, `Location`, `MatchLevel` | P4 | 15 Nov |
+| P3, P5 | Repository interfaces | P1 | 15 Nov |
+| P5 | `PasswordHasher` (seed hashes) | P3 | 16 Nov |
+| P1 (`SearchService`), P3 (`InventoryService`), P4 (`PharmacistMenu`) | `FreshnessClassifier` | P4 | 16 Nov |
+| P5 | `CsvFile` | P1 | 17 Nov |
+| P1, P3, P5 | Validated model with `Pharmacy` status rules | P4 | 18 Nov |
+| P1, P3 | Seed data | P5 | 18 Nov |
+| All menu authors (P2, P4, P5) | `ConsoleHelper` | P3 | 18 Nov |
+| All menu authors (P2, P4, P5) | Abstract `Menu` | P3 | 19 Nov |
+| P5 | `FileUserRepository` as the pattern | P1 | 19 Nov |
+| P1 (review) | AI contracts | P2 | 19 Nov |
+| P1, P3, P5 | `AppConfig` | P2 | 21 Nov |
+| P5 (`LocalityService`) | `TextSimilarity` | P1 | 21 Nov |
+| P1 (`SearchService`), P3 (services) | Four file repositories | P5 | 21–22 Nov |
+| P3 (`PharmacyService`), P2 (`CustomerMenu`, `AiModeMenu`), P4 (`PharmacistMenu`) | `LocalityService` | P5 | 23 Nov |
+| P2 (`CustomerMenu`), P4 (`PharmacistMenu`) | `CatalogueService` | P5 | 23 Nov |
+| P5 (`StartMenu`, `AdministratorMenu`) | `AuthService`, `Session` | P3 | 23 Nov |
+| P1 (`AppContext` wiring) | All services as they are merged | P3, P5, P2 | 23–29 Nov |
+| P4 (`PharmacistMenu`), P5 (`AdministratorMenu`) | `PharmacyService` | P3 | 25 Nov |
+| P5 (`StartMenu`) | Empty `CustomerMenu` | P2 | 27 Nov |
+| P4 (`PharmacistMenu`) | `InventoryService` | P3 | 28 Nov |
+| P2 (`CustomerMenu`, `AiModeMenu`) | `SearchService` | P1 | 28 Nov |
+| P5 (running test cases), P3 (slides) | Finished menus and features | all | 2 Dec (M3) |
+| Everyone | Defect list and priorities | P1 | 3 Dec |
 
 ### Dependency Picture
 
@@ -220,7 +220,7 @@ WEEK 4
 
 **T01 skeleton → T05a model → T06/T07 interfaces and CSV helper → T13 first file repository → T14/T15 remaining file repositories → T29 SearchService → T35 and T36 customer and AI menus → T38 integration → T40 fixes → T46 release.**
 
-Any delay on this chain delays delivery day for day. The most sensitive handoffs are the **model skeleton (13 Nov)**, the **file repository pattern (17 Nov)**, **P5's file repositories (20 Nov)** and **SearchService (26 Nov)**.
+Any delay on this chain delays delivery day for day. The most sensitive handoffs are the **model skeleton (15 Nov)**, the **file repository pattern (19 Nov)**, **P5's file repositories (22 Nov)** and **SearchService (28 Nov)**.
 
 ### Who Is Depended On Most
 
@@ -230,7 +230,7 @@ Any delay on this chain delays delivery day for day. The most sensitive handoffs
 | P3 | `ConsoleHelper`, `Menu` and services are needed by all menu authors | Console foundation first; P2 is the backup |
 | P1 | File repository pattern and `SearchService` feed several people | P1 takes no new tasks after Week 3; P3 is the backup for search |
 | P5 | Four file repositories feed `SearchService` and every service | They copy one finished pattern (`FileUserRepository`); P4 supports in Week 2 (P4's Week 2 is free); P1 reviews quickly |
-| P2 | Customer and AI menus are on the critical path at the end | `CustomerMenu` is short; empty version merged by 25 Nov; P3 is the backup |
+| P2 | Customer and AI menus are on the critical path at the end | `CustomerMenu` is short; empty version merged by 27 Nov; P3 is the backup |
 
 ## 6. Collaboration Rules
 

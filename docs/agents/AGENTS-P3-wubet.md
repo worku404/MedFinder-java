@@ -50,7 +50,7 @@ Version 1.2 — 13 November 2026 — aligned with documents 01–05 v1.2
 
 ## Part 3 — Project Summary
 
-**MedFinder** is a Java **command-line** application for **Addis Ababa** that helps a patient find out, before travelling, which **verified pharmacy** has a medicine in stock, at what price, how recently that stock was confirmed, and whether the pharmacy is in the customer's own sub-city. It is an **Object-Oriented Programming course project** (chapters 1–6) built by five students in four weeks (11 Nov – 11 Dec 2026): **57 classes, about 2,000–2,400 lines of code** (tests not counted).
+**MedFinder** is a Java **command-line** application for **Addis Ababa** that helps a patient find out, before travelling, which **verified pharmacy** has a medicine in stock, at what price, how recently that stock was confirmed, and whether the pharmacy is in the customer's own sub-city. It is an **Object-Oriented Programming course project** (chapters 1–6) built by five students in four weeks (14 Nov – 11 Dec 2026): **57 classes, about 2,000–2,400 lines of code** (tests not counted).
 
 | Who | What they do |
 |---|---|
@@ -82,9 +82,9 @@ The developer will give you these files (in `docs/` of the repository, or pasted
 
 | Milestone | Date | Meaning |
 |---|---|---|
-| M1 | 17 Nov | Project builds; model, exceptions, console helper, abstract `Menu`, `CsvFile` and repository interfaces exist; sample data ready; AI "hello" call works from Java |
-| M2 | 24 Nov | All file repositories load the seed data; login, pharmacy registration and approval, stock add work through services; search and AI parsing work in tests |
-| M3 | 1 Dec | **Feature complete** — every Must requirement usable from menus. No new features after this. |
+| M1 | 19 Nov | Project builds; model, exceptions, console helper, abstract `Menu`, `CsvFile` and repository interfaces exist; sample data ready; AI "hello" call works from Java |
+| M2 | 26 Nov | All file repositories load the seed data; login, pharmacy registration and approval, stock add work through services; search and AI parsing work in tests |
+| M3 | 2 Dec | **Feature complete** — every Must requirement usable from menus. No new features after this. |
 | M4 | 8 Dec | Release candidate; all AT scenarios pass; slides and manual ready |
 | Delivery | 11 Dec | Submission and presentation |
 
@@ -225,20 +225,20 @@ Full details and "Done when" criteria: document 04, Section 5.
 
 | ID | Task | Pred. | Due | Done when |
 |---|---|---|---|---|
-| T11 | `PasswordHasher` (salted SHA-256) with a quick check — **hand it to P5 on 14 Nov** for seed hashes | T01 (P1) | 14 Nov | Hash differs per call; verify works; wrong password fails |
-| T10 | `ConsoleHelper` (`implements AutoCloseable`; overloaded `readInt`/`readText`; yes/no; numbered-list choice; aligned table; catches `NumberFormatException`) | T01 | 16 Nov | Demonstrated with a small test menu |
-| T10b | Abstract `Menu`: `final run()` with `do … while`, abstract `title()`, `showOptions()`, `handle(int)`, ordered catch blocks (HLD 9) | T10, T03 (P4) | 17 Nov | The T10 test menu is rewritten as a subclass and works |
-| T19 | `Session` and `AuthService` (`requirePharmacist` with `instanceof` pattern, `requireAdministrator`, `listUsers`) | T05b (P4), T06 (P1), T11 | 21 Nov | Every refusal in HLD 4.2 checked |
-| T20 | `PharmacyService` (register, update, resubmit, approve, reject, withdraw, list pending/verified; licence unique ignoring case and spaces) | T19, T24b (P5) | 23 Nov | Every transition in BR-11 works, including Verified → Pending after a licence or sub-city edit |
-| T28 | `InventoryService` (add, edit, remove, reconfirm selected/all) | T20, T08 (P4) | 26 Nov | Every refusal in HLD 4.5 checked |
+| T11 | `PasswordHasher` (salted SHA-256) with a quick check — **hand it to P5 on 16 Nov** for seed hashes | T01 (P1) | 16 Nov | Hash differs per call; verify works; wrong password fails |
+| T10 | `ConsoleHelper` (`implements AutoCloseable`; overloaded `readInt`/`readText`; yes/no; numbered-list choice; aligned table; catches `NumberFormatException`) | T01 | 18 Nov | Demonstrated with a small test menu |
+| T10b | Abstract `Menu`: `final run()` with `do … while`, abstract `title()`, `showOptions()`, `handle(int)`, ordered catch blocks (HLD 9) | T10, T03 (P4) | 19 Nov | The T10 test menu is rewritten as a subclass and works |
+| T19 | `Session` and `AuthService` (`requirePharmacist` with `instanceof` pattern, `requireAdministrator`, `listUsers`) | T05b (P4), T06 (P1), T11 | 23 Nov | Every refusal in HLD 4.2 checked |
+| T20 | `PharmacyService` (register, update, resubmit, approve, reject, withdraw, list pending/verified; licence unique ignoring case and spaces) | T19, T24b (P5) | 25 Nov | Every transition in BR-11 works, including Verified → Pending after a licence or sub-city edit |
+| T28 | `InventoryService` (add, edit, remove, reconfirm selected/all) | T20, T08 (P4) | 28 Nov | Every refusal in HLD 4.5 checked |
 | T40 | Fix defects in your own files | T38 (P1) | 7 Dec | No open Must defect |
 | T44 | Polish the user manual (P5 drafts) | M3 | 6 Dec | Covers every menu |
 | T45 | Slides and demonstration script, including the chapter coverage table (HLD 15.2) | M3 | 8 Dec | Approved by P1 |
 | T47 | Rehearsal with P1 (twice, timed); every member explains their own classes and their chapter concepts | T45 | 9–10 Dec | Fits the allowed time |
 
-**Others are waiting for:** `PasswordHasher` (14 Nov) → P5 seed hashes; `ConsoleHelper` (16 Nov) and `Menu` (17 Nov) → **all menu authors** (P2, P4, P5); `AuthService` and `Session` (21 Nov) → P5 `StartMenu`, `AdministratorMenu`; `PharmacyService` (23 Nov) → P4 `PharmacistMenu`, P5 `AdministratorMenu`; `InventoryService` (26 Nov) → P4; slides and script (8 Dec).
+**Others are waiting for:** `PasswordHasher` (16 Nov) → P5 seed hashes; `ConsoleHelper` (18 Nov) and `Menu` (19 Nov) → **all menu authors** (P2, P4, P5); `AuthService` and `Session` (23 Nov) → P5 `StartMenu`, `AdministratorMenu`; `PharmacyService` (25 Nov) → P4 `PharmacistMenu`, P5 `AdministratorMenu`; `InventoryService` (28 Nov) → P4; slides and script (8 Dec).
 
-**You need from others:** model skeleton and validation (P4, 13 and 16 Nov); exceptions (P4, 13 Nov); repository interfaces (P1, 13 Nov); `FileUserRepository` (P1, 17 Nov); `FreshnessClassifier` (P4, 14 Nov); `LocalityService` (P5, 21 Nov — signature fixed in HLD 4.4; until then use a stand-in **in test code only**).
+**You need from others:** model skeleton and validation (P4, 15 and 18 Nov); exceptions (P4, 15 Nov); repository interfaces (P1, 15 Nov); `FileUserRepository` (P1, 19 Nov); `FreshnessClassifier` (P4, 16 Nov); `LocalityService` (P5, 23 Nov — signature fixed in HLD 4.4; until then use a stand-in **in test code only**).
 
 ## Part 9 — Design Rules for Your Classes
 
@@ -252,7 +252,7 @@ Full details and "Done when" criteria: document 04, Section 5.
 - `public abstract class Menu` with a protected `ConsoleHelper` set in the constructor and `protected` helpers for subclasses.
 - `public final void run()`: `do … while` loop → print `title()` → `showOptions()` → read the choice → `handle(choice)` inside `try`, with catch blocks **in this order** (subclass before superclass): `ValidationException` → print "Please check: …"; `MedFinderException` → print its message; `RuntimeException` → print "Something went wrong, returning to the menu" (stack trace only when `app.debug=true`; the flag is passed in, since `console` may not use `config`). Repeat until `handle` signals exit. No empty catch block.
 - Subclasses override `protected abstract String title()`, `protected abstract void showOptions()` and `protected abstract boolean handle(int choice)` with a classic `switch`. Document in the Javadoc what the returned `boolean` means so P2, P4 and P5 use it the same way.
-- This is the main **inheritance + abstract class + `final` method + Template Method** example in the console layer. Publish it by 17 Nov.
+- This is the main **inheritance + abstract class + `final` method + Template Method** example in the console layer. Publish it by 19 Nov.
 
 **`Session` (T19, HLD 4.2).** Holds `User currentUser` (null when nobody is logged in) and `String district` (the customer's chosen sub-city, null when none). Operations: `currentUser()`, `setUser(u)`, `clear()`, `district()`, `setDistrict(d)`, `clearDistrict()`. Memory only — never saved (FR-ACC-08).
 

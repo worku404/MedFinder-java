@@ -17,10 +17,10 @@ Version 1.2 — 13 November 2026 — aligned with documents 01–05 v1.2
 | **Mission** | Provide the shared building blocks every other member compiles against (exceptions, enums, entities), the freshness classifier, and the pharmacist's screens |
 | **Your pull requests are reviewed by** | P3 Wubet |
 | **You support** | P5's four file repositories, `LocalityService` and `CatalogueService`, and the seed data format (your Week 2 is free for this); you run the acceptance tests with P5 |
-| **Pair sessions** | With P3, twice a week, starting 12 Nov |
+| **Pair sessions** | With P3, twice a week, starting 14 Nov |
 | **Backup if you are unavailable** | P1 (model, exceptions, `FreshnessClassifier`), P3 (`PharmacistMenu`, test documents) |
 
-**How to explain things to Tesnim:** this is guided work, so go **slowly and in small steps**. Build one class at a time, and before writing it say in two or three plain sentences what the class is for and which other members use it. Explain every OOP idea the first time it appears (encapsulation, constructor validation, `abstract`, `enum` with a field, overriding `equals`/`hashCode`, constructor chaining) with a tiny example from *this* project. Prefer short, simple methods over clever ones. After each class, give Tesnim one question she can answer to check she understood it. **Your 13 Nov work blocks the whole team**: skeleton first (fields, constructors, getters), validation later. If Tesnim is more than a day behind, remind her to tell P1.
+**How to explain things to Tesnim:** this is guided work, so go **slowly and in small steps**. Build one class at a time, and before writing it say in two or three plain sentences what the class is for and which other members use it. Explain every OOP idea the first time it appears (encapsulation, constructor validation, `abstract`, `enum` with a field, overriding `equals`/`hashCode`, constructor chaining) with a tiny example from *this* project. Prefer short, simple methods over clever ones. After each class, give Tesnim one question she can answer to check she understood it. **Your 15 Nov work blocks the whole team**: skeleton first (fields, constructors, getters), validation later. If Tesnim is more than a day behind, remind her to tell P1.
 
 > **What changed for you in v1.2**
 > - `FilePharmacyRepository` and `FileStockRepository` moved to **P5** (you support). Removed: `Locality`, `StockView`, `LocationScoring`, `AreaMatchScoring` (T09), and the exceptions `InvalidCredentialsException`, `PharmacyNotVerifiedException`, `DuplicateEntryException`.
@@ -51,7 +51,7 @@ Version 1.2 — 13 November 2026 — aligned with documents 01–05 v1.2
 
 ## Part 3 — Project Summary
 
-**MedFinder** is a Java **command-line** application for **Addis Ababa** that helps a patient find out, before travelling, which **verified pharmacy** has a medicine in stock, at what price, how recently that stock was confirmed, and whether the pharmacy is in the customer's own sub-city. It is an **Object-Oriented Programming course project** (chapters 1–6) built by five students in four weeks (11 Nov – 11 Dec 2026): **57 classes, about 2,000–2,400 lines of code** (tests not counted).
+**MedFinder** is a Java **command-line** application for **Addis Ababa** that helps a patient find out, before travelling, which **verified pharmacy** has a medicine in stock, at what price, how recently that stock was confirmed, and whether the pharmacy is in the customer's own sub-city. It is an **Object-Oriented Programming course project** (chapters 1–6) built by five students in four weeks (14 Nov – 11 Dec 2026): **57 classes, about 2,000–2,400 lines of code** (tests not counted).
 
 | Who | What they do |
 |---|---|
@@ -83,9 +83,9 @@ The developer will give you these files (in `docs/` of the repository, or pasted
 
 | Milestone | Date | Meaning |
 |---|---|---|
-| M1 | 17 Nov | Project builds; model, exceptions, console helper, abstract `Menu`, `CsvFile` and repository interfaces exist; sample data ready; AI "hello" call works from Java |
-| M2 | 24 Nov | All file repositories load the seed data; login, pharmacy registration and approval, stock add work through services; search and AI parsing work in tests |
-| M3 | 1 Dec | **Feature complete** — every Must requirement usable from menus. No new features after this. |
+| M1 | 19 Nov | Project builds; model, exceptions, console helper, abstract `Menu`, `CsvFile` and repository interfaces exist; sample data ready; AI "hello" call works from Java |
+| M2 | 26 Nov | All file repositories load the seed data; login, pharmacy registration and approval, stock add work through services; search and AI parsing work in tests |
+| M3 | 2 Dec | **Feature complete** — every Must requirement usable from menus. No new features after this. |
 | M4 | 8 Dec | Release candidate; all AT scenarios pass; slides and manual ready |
 | Delivery | 11 Dec | Submission and presentation |
 
@@ -227,23 +227,23 @@ Full details and "Done when" criteria: document 04, Section 5.
 
 | ID | Task | Pred. | Due | Done when |
 |---|---|---|---|---|
-| T03 | Exceptions: `MedFinderException` (unchecked, four constructors) and `ValidationException`, `AuthorizationException`, `NotFoundException`, `DataStorageException` | T01 (P1) | **13 Nov** | All compile; each calls `super(...)` |
-| T04 | Enums `Role`, `PharmacyStatus`, `Freshness`, `MatchLevel` (with labels and values); `final class Location` with `matchLevel`, `equals`, `hashCode` | T01 | **13 Nov** | `Location` immutable with value equality |
-| T05a | Model skeleton: `User` (abstract), `Pharmacist`, `Administrator`, `Medicine`, `Pharmacy`, `StockRecord` with fields and constructors (including `this(...)` chaining) | T03, T04 | **13 Nov** | Others can compile against them |
-| T08 | `FreshnessClassifier` (static) with boundary tests | T04 | 14 Nov | Tests at 12 h and 48 h pass |
-| T05b | Model validation and `Pharmacy` status methods; `LocationTest`, `PharmacyTest` (with P3) | T05a | 16 Nov | Every disallowed transition (BR-11) throws `ValidationException` |
-| — | Week 2: support P5 with T14 (pharmacy and stock repositories), T15, T24 | — | 18–24 Nov | — |
-| T34 | `PharmacistMenu` (status and reason, register/edit pharmacy with sub-city list, resubmit, stock list/add/edit/remove, reconfirm selected or all, catalogue) | T10b, T20, T28 (P3), T24b (P5) | 1 Dec | AT-01 to AT-06, AT-21, AT-22 work |
+| T03 | Exceptions: `MedFinderException` (unchecked, four constructors) and `ValidationException`, `AuthorizationException`, `NotFoundException`, `DataStorageException` | T01 (P1) | **15 Nov** | All compile; each calls `super(...)` |
+| T04 | Enums `Role`, `PharmacyStatus`, `Freshness`, `MatchLevel` (with labels and values); `final class Location` with `matchLevel`, `equals`, `hashCode` | T01 | **15 Nov** | `Location` immutable with value equality |
+| T05a | Model skeleton: `User` (abstract), `Pharmacist`, `Administrator`, `Medicine`, `Pharmacy`, `StockRecord` with fields and constructors (including `this(...)` chaining) | T03, T04 | **15 Nov** | Others can compile against them |
+| T08 | `FreshnessClassifier` (static) with boundary tests | T04 | 16 Nov | Tests at 12 h and 48 h pass |
+| T05b | Model validation and `Pharmacy` status methods; `LocationTest`, `PharmacyTest` (with P3) | T05a | 18 Nov | Every disallowed transition (BR-11) throws `ValidationException` |
+| — | Week 2: support P5 with T14 (pharmacy and stock repositories), T15, T24 | — | 20–26 Nov | — |
+| T34 | `PharmacistMenu` (status and reason, register/edit pharmacy with sub-city list, resubmit, stock list/add/edit/remove, reconfirm selected or all, catalogue) | T10b, T20, T28 (P3), T24b (P5) | 2 Dec | AT-01 to AT-06, AT-21, AT-22 work |
 | T39 | Execute all scenarios on three computers with P5; record results | T37 (P5), T38 (P1) | 5 Dec | Results table filled |
 | T40 | Fix defects in your own files | T38 | 7 Dec | No open Must defect |
 
-**Others are waiting for:** exceptions and model skeleton, `Location`, `MatchLevel` (13 Nov) → **P1, P2, P3, P5** (the earliest and most widely needed handoff); `FreshnessClassifier` (14 Nov) → P1 `SearchService`, P3 `InventoryService`, your own `PharmacistMenu`; validated model with `Pharmacy` status rules (16 Nov) → P1, P3, P5.
+**Others are waiting for:** exceptions and model skeleton, `Location`, `MatchLevel` (15 Nov) → **P1, P2, P3, P5** (the earliest and most widely needed handoff); `FreshnessClassifier` (16 Nov) → P1 `SearchService`, P3 `InventoryService`, your own `PharmacistMenu`; validated model with `Pharmacy` status rules (18 Nov) → P1, P3, P5.
 
-**You need from others:** project skeleton (P1, 12 Nov); `ConsoleHelper` and `Menu` (P3, 16–17 Nov); `LocalityService` and `CatalogueService` (P5, 21 Nov); `PharmacyService` (P3, 23 Nov); `InventoryService` (P3, 26 Nov).
+**You need from others:** project skeleton (P1, 14 Nov); `ConsoleHelper` and `Menu` (P3, 18–19 Nov); `LocalityService` and `CatalogueService` (P5, 23 Nov); `PharmacyService` (P3, 25 Nov); `InventoryService` (P3, 28 Nov).
 
 ## Part 9 — Design Rules for Your Classes
 
-**Order of work on 13 Nov:** exceptions → enums → `Location` → entities with fields, constructors and getters only. Push that as one small pull request so others can compile. Add validation in T05b. If late by more than one day, tell P1.
+**Order of work on 15 Nov:** exceptions → enums → `Location` → entities with fields, constructors and getters only. Push that as one small pull request so others can compile. Add validation in T05b. If late by more than one day, tell P1.
 
 **Exceptions (T03, HLD 9).** `public class MedFinderException extends RuntimeException` (**unchecked**) with four constructors: `()`, `(String message)`, `(String message, Throwable cause)`, `(Throwable cause)` — each calls `super(...)`. Subclasses extend `MedFinderException` and have at least `(String message)` and `(String message, Throwable cause)`. One-line Javadoc per class with its meaning from HLD 9:
 - `ValidationException` — field empty, malformed, out of range, or **duplicate** (email, licence, second pharmacy, stock record).

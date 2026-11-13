@@ -17,7 +17,7 @@ Version 1.2 — 13 November 2026 — aligned with documents 01–05 v1.2
 | **Mission** | Supply the data the whole system runs on and the repositories that read it, two services and two menus, and the test scenarios that decide acceptance |
 | **Your pull requests are reviewed by** | P3 Wubet (code and menus); P1 Worku (seed data, `test-cases.md`, user manual) |
 | **Your supporters** | P1 and P4 (file repositories), P4 (services, seed format), P3 (menus, password hashes) |
-| **Pair sessions** | With P3 and P4, starting 12 Nov |
+| **Pair sessions** | With P3 and P4, starting 14 Nov |
 | **Backup if you are unavailable** | P4 (data, repositories, services, menus), P3 (test cases, user manual) |
 
 **How to explain things to Yamsin:** this is guided work, so use **the simplest explanations, with a concrete example from the project for every idea**. Show what a finished line of a CSV file or a finished menu screen looks like *before* writing the code that produces it. Build one method at a time and say in plain words why it exists ("`toLocation` makes sure nobody can save a sub-city that does not exist"). Explain each OOP idea the first time it appears (implementing two interfaces, constructor injection, extending `Menu`, overriding a method). Keep methods short. After each class, give Yamsin one question she can answer to check her understanding. Because Yamsin also writes the test cases and the manual, point out which acceptance test (AT-xx) each piece of code makes possible.
@@ -51,7 +51,7 @@ Version 1.2 — 13 November 2026 — aligned with documents 01–05 v1.2
 
 ## Part 3 — Project Summary
 
-**MedFinder** is a Java **command-line** application for **Addis Ababa** that helps a patient find out, before travelling, which **verified pharmacy** has a medicine in stock, at what price, how recently that stock was confirmed, and whether the pharmacy is in the customer's own sub-city. It is an **Object-Oriented Programming course project** (chapters 1–6) built by five students in four weeks (11 Nov – 11 Dec 2026): **57 classes, about 2,000–2,400 lines of code** (tests not counted).
+**MedFinder** is a Java **command-line** application for **Addis Ababa** that helps a patient find out, before travelling, which **verified pharmacy** has a medicine in stock, at what price, how recently that stock was confirmed, and whether the pharmacy is in the customer's own sub-city. It is an **Object-Oriented Programming course project** (chapters 1–6) built by five students in four weeks (14 Nov – 11 Dec 2026): **57 classes, about 2,000–2,400 lines of code** (tests not counted).
 
 | Who | What they do |
 |---|---|
@@ -83,9 +83,9 @@ The developer will give you these files (in `docs/` of the repository, or pasted
 
 | Milestone | Date | Meaning |
 |---|---|---|
-| M1 | 17 Nov | Project builds; model, exceptions, console helper, abstract `Menu`, `CsvFile` and repository interfaces exist; sample data ready; AI "hello" call works from Java |
-| M2 | 24 Nov | All file repositories load the seed data; login, pharmacy registration and approval, stock add work through services; search and AI parsing work in tests |
-| M3 | 1 Dec | **Feature complete** — every Must requirement usable from menus. No new features after this. |
+| M1 | 19 Nov | Project builds; model, exceptions, console helper, abstract `Menu`, `CsvFile` and repository interfaces exist; sample data ready; AI "hello" call works from Java |
+| M2 | 26 Nov | All file repositories load the seed data; login, pharmacy registration and approval, stock add work through services; search and AI parsing work in tests |
+| M3 | 2 Dec | **Feature complete** — every Must requirement usable from menus. No new features after this. |
 | M4 | 8 Dec | Release candidate; all AT scenarios pass; slides and manual ready |
 | Delivery | 11 Dec | Submission and presentation |
 
@@ -227,23 +227,23 @@ Full details and "Done when" criteria: document 04, Section 5.
 
 | ID | Task | Pred. | Due | Done when |
 |---|---|---|---|---|
-| T12 | Seed data: all five files (11 sub-cities, 12 pharmacies, 13 users, ≥ 40 medicines, ≥ 30 stock rows with `ageHours`) — medicines and sub-city list first (13–14 Nov); ask P3 for the hashing helper on 14 Nov | T11 (P3) | **16 Nov** | Columns exactly as HLD 5.1; sub-city list confirmed |
-| T15 | `FileMedicineRepository` and `FileLocalityRepository` | T13 (P1) | 19 Nov | `findDistricts("Addis Ababa")` returns 11 sub-cities |
-| T14 | `FilePharmacyRepository` and `FileStockRepository` (each also implements `RowMapper`) | T13 (P1) | 20 Nov | Load seed, save, reload |
-| T24 | `CatalogueService` (`listActive`, `findById`) | T15 | 21 Nov | Works with the seed data |
-| T24b | `LocalityService` (`districts`, `toLocation`, `matchDistrict` using `TextSimilarity`) | T15, T16 (P2), T17 (P1) | 21 Nov | Unknown sub-city refused; "bole" and "Bolle" match Bole |
-| T32 | `StartMenu` (customer entry without login, login with `switch` on role, pharmacist registration, exit) | T10b, T19 (P3), T21 (P1), T35 empty menu (P2) | 26 Nov | AT-16, AT-18 and the login flows work |
-| T37 | `test-cases.md`: every AT scenario as numbered steps with expected result | T12 | 27 Nov | Reviewed by P1 |
-| T33 | `AdministratorMenu` (pending list, review with licence, approve, reject with reason, withdraw from the Verified list, list users) | T10b, T20, T19 (P3) | 30 Nov | AT-01 to AT-04 admin parts, AT-19, AT-20 work |
+| T12 | Seed data: all five files (11 sub-cities, 12 pharmacies, 13 users, ≥ 40 medicines, ≥ 30 stock rows with `ageHours`) — medicines and sub-city list first (15–16 Nov); ask P3 for the hashing helper on 16 Nov | T11 (P3) | **18 Nov** | Columns exactly as HLD 5.1; sub-city list confirmed |
+| T15 | `FileMedicineRepository` and `FileLocalityRepository` | T13 (P1) | 21 Nov | `findDistricts("Addis Ababa")` returns 11 sub-cities |
+| T14 | `FilePharmacyRepository` and `FileStockRepository` (each also implements `RowMapper`) | T13 (P1) | 22 Nov | Load seed, save, reload |
+| T24 | `CatalogueService` (`listActive`, `findById`) | T15 | 23 Nov | Works with the seed data |
+| T24b | `LocalityService` (`districts`, `toLocation`, `matchDistrict` using `TextSimilarity`) | T15, T16 (P2), T17 (P1) | 23 Nov | Unknown sub-city refused; "bole" and "Bolle" match Bole |
+| T32 | `StartMenu` (customer entry without login, login with `switch` on role, pharmacist registration, exit) | T10b, T19 (P3), T21 (P1), T35 empty menu (P2) | 28 Nov | AT-16, AT-18 and the login flows work |
+| T37 | `test-cases.md`: every AT scenario as numbered steps with expected result | T12 | 29 Nov | Reviewed by P1 |
+| T33 | `AdministratorMenu` (pending list, review with licence, approve, reject with reason, withdraw from the Verified list, list users) | T10b, T20, T19 (P3) | 1 Dec | AT-01 to AT-04 admin parts, AT-19, AT-20 work |
 | T39 | Execute all scenarios on three computers with P4; record results | T37, T38 (P1) | 5 Dec | Results table filled |
 | T44 | First draft of `docs/user-manual.md` (per role) | M3 | 6 Dec | Covers every menu |
 | T40 | Fix defects in your own files | T38 | 7 Dec | No open Must defect |
 
 Also: support P1 with T41 (result order with the sample data, 4 Dec) and T46 (reset data, 9 Dec); regression run of all scenarios after the last fix (8 Dec).
 
-**Others are waiting for:** seed data (16 Nov) → P1, P3 and every demonstration; four file repositories (19–20 Nov) → P1 `SearchService` and all services (**critical path**); `LocalityService` (21 Nov) → P3 `PharmacyService`, P2 `CustomerMenu`/`AiModeMenu`, P4 `PharmacistMenu`; `CatalogueService` (21 Nov) → P2 `CustomerMenu`, P4 `PharmacistMenu`; test scenarios (27 Nov); scenario results (5 Dec).
+**Others are waiting for:** seed data (18 Nov) → P1, P3 and every demonstration; four file repositories (21–22 Nov) → P1 `SearchService` and all services (**critical path**); `LocalityService` (23 Nov) → P3 `PharmacyService`, P2 `CustomerMenu`/`AiModeMenu`, P4 `PharmacistMenu`; `CatalogueService` (23 Nov) → P2 `CustomerMenu`, P4 `PharmacistMenu`; test scenarios (29 Nov); scenario results (5 Dec).
 
-**You need from others:** `PasswordHasher` (P3, 14 Nov); column layouts (document 02, Section 5); `CsvFile` (P1, 15 Nov) and the `FileUserRepository` pattern (P1, 17 Nov); `TextSimilarity` (P1, 19 Nov); `ConsoleHelper` and `Menu` (P3, 16–17 Nov); `AuthService` (P3, 21 Nov); `PharmacyService` (P3, 23 Nov); empty `CustomerMenu` (P2, 25 Nov).
+**You need from others:** `PasswordHasher` (P3, 16 Nov); column layouts (document 02, Section 5); `CsvFile` (P1, 17 Nov) and the `FileUserRepository` pattern (P1, 19 Nov); `TextSimilarity` (P1, 21 Nov); `ConsoleHelper` and `Menu` (P3, 18–19 Nov); `AuthService` (P3, 23 Nov); `PharmacyService` (P3, 25 Nov); empty `CustomerMenu` (P2, 27 Nov).
 
 ## Part 9 — Design Rules for Your Work
 

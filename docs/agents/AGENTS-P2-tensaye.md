@@ -50,7 +50,7 @@ Version 1.2 — 13 November 2026 — aligned with documents 01–05 v1.2
 
 ## Part 3 — Project Summary
 
-**MedFinder** is a Java **command-line** application for **Addis Ababa** that helps a patient find out, before travelling, which **verified pharmacy** has a medicine in stock, at what price, how recently that stock was confirmed, and whether the pharmacy is in the customer's own sub-city. It is an **Object-Oriented Programming course project** (chapters 1–6) built by five students in four weeks (11 Nov – 11 Dec 2026): **57 classes, about 2,000–2,400 lines of code** (tests not counted).
+**MedFinder** is a Java **command-line** application for **Addis Ababa** that helps a patient find out, before travelling, which **verified pharmacy** has a medicine in stock, at what price, how recently that stock was confirmed, and whether the pharmacy is in the customer's own sub-city. It is an **Object-Oriented Programming course project** (chapters 1–6) built by five students in four weeks (14 Nov – 11 Dec 2026): **57 classes, about 2,000–2,400 lines of code** (tests not counted).
 
 | Who | What they do |
 |---|---|
@@ -82,9 +82,9 @@ The developer will give you these files (in `docs/` of the repository, or pasted
 
 | Milestone | Date | Meaning |
 |---|---|---|
-| M1 | 17 Nov | Project builds; model, exceptions, console helper, abstract `Menu`, `CsvFile` and repository interfaces exist; sample data ready; AI "hello" call works from Java |
-| M2 | 24 Nov | All file repositories load the seed data; login, pharmacy registration and approval, stock add work through services; search and AI parsing work in tests |
-| M3 | 1 Dec | **Feature complete** — every Must requirement usable from menus. No new features after this. |
+| M1 | 19 Nov | Project builds; model, exceptions, console helper, abstract `Menu`, `CsvFile` and repository interfaces exist; sample data ready; AI "hello" call works from Java |
+| M2 | 26 Nov | All file repositories load the seed data; login, pharmacy registration and approval, stock add work through services; search and AI parsing work in tests |
+| M3 | 2 Dec | **Feature complete** — every Must requirement usable from menus. No new features after this. |
 | M4 | 8 Dec | Release candidate; all AT scenarios pass; slides and manual ready |
 | Delivery | 11 Dec | Submission and presentation |
 
@@ -226,25 +226,25 @@ Full details and "Done when" criteria: document 04, Section 5.
 
 | ID | Task | Pred. | Due | Done when |
 |---|---|---|---|---|
-| — | Choose the LLM service and obtain an access key for every member who runs AI mode (document 04, Section 3) | — | 13 Nov | Service chosen; keys handed out (never committed) |
-| T22 | LLM service chosen; key obtained; a small Java program sends one request and prints the answer | — | 14 Nov | Real answer received from Java |
-| T23 | AI contracts: `LlmClient`, `AiOutcome` (nested `Kind`, factories), `AiServiceException` | T03 (P4) | **17 Nov** | Reviewed by P1 |
-| T16 | `AppConfig` (settings, environment override, `public static final` constants) and example settings file | T01 (P1) | 19 Nov | Settings and environment override work |
-| T25 | `HttpLlmClient`: request, 15 s timeout, multi-catch → `AiServiceException` | T22, T23 | 20 Nov | Timeout and no-network give `AiServiceException` |
-| T26 | `system-prompt.txt` and `PromptBuilder` | T23 | 21 Nov | Valid JSON for ten sample requests |
-| T27 | `AiResponseParser` with tests (SEARCH with/without sub-city, UNSUPPORTED, fenced, invalid, six keywords) | T23 | 24 Nov | All sample cases pass |
-| T35 (empty) | Empty `CustomerMenu` merged so `StartMenu` can open it | T10b (P3) | **25 Nov** | P5's `StartMenu` can open it |
-| T30 | `AiAssistantService` with `AiAssistantServiceTest` using `FakeLlmClient` | T25, T26, T27 | 27 Nov | Every row of HLD 8.4 gives the right outcome |
-| T35 | `CustomerMenu` (search by name, results table with match level, catalogue, set/clear sub-city) | T10b (P3), T24, T24b (P5), T29 (P1) | 29 Nov | AT-07 to AT-10 work |
-| T36 | `AiModeMenu` (flow F5: configured check, keywords, sub-city resolution, per-keyword results, unsupported, fallback) | T29 (P1), T30, T24b (P5), T35 | 1 Dec | AT-11 to AT-15 work |
+| — | Choose the LLM service and obtain an access key for every member who runs AI mode (document 04, Section 3) | — | 15 Nov | Service chosen; keys handed out (never committed) |
+| T22 | LLM service chosen; key obtained; a small Java program sends one request and prints the answer | — | 16 Nov | Real answer received from Java |
+| T23 | AI contracts: `LlmClient`, `AiOutcome` (nested `Kind`, factories), `AiServiceException` | T03 (P4) | **19 Nov** | Reviewed by P1 |
+| T16 | `AppConfig` (settings, environment override, `public static final` constants) and example settings file | T01 (P1) | 21 Nov | Settings and environment override work |
+| T25 | `HttpLlmClient`: request, 15 s timeout, multi-catch → `AiServiceException` | T22, T23 | 22 Nov | Timeout and no-network give `AiServiceException` |
+| T26 | `system-prompt.txt` and `PromptBuilder` | T23 | 23 Nov | Valid JSON for ten sample requests |
+| T27 | `AiResponseParser` with tests (SEARCH with/without sub-city, UNSUPPORTED, fenced, invalid, six keywords) | T23 | 26 Nov | All sample cases pass |
+| T35 (empty) | Empty `CustomerMenu` merged so `StartMenu` can open it | T10b (P3) | **27 Nov** | P5's `StartMenu` can open it |
+| T30 | `AiAssistantService` with `AiAssistantServiceTest` using `FakeLlmClient` | T25, T26, T27 | 29 Nov | Every row of HLD 8.4 gives the right outcome |
+| T35 | `CustomerMenu` (search by name, results table with match level, catalogue, set/clear sub-city) | T10b (P3), T24, T24b (P5), T29 (P1) | 30 Nov | AT-07 to AT-10 work |
+| T36 | `AiModeMenu` (flow F5: configured check, keywords, sub-city resolution, per-keyword results, unsupported, fallback) | T29 (P1), T30, T24b (P5), T35 | 2 Dec | AT-11 to AT-15 work |
 | T42 | AI hardening: prompt adjustments from real answers; 20 test requests (searches with and without sub-city, misspelt sub-city, dose question, nonsense) | T36 | 5 Dec | No AI text displayed; failures fall back correctly |
 | T40 | Fix defects in your own files | T38 (P1) | 7 Dec | No open Must defect |
 
 Delivery checklist (document 04, Section 12): AI mode tested on the presentation computer, plus plan B (disconnect the network and show the fallback).
 
-**Others are waiting for:** AI contracts (17 Nov) → P1 for review; `AppConfig` (19 Nov) → P1, P3, P5; an empty `CustomerMenu` (25 Nov) → P5's `StartMenu`; working `AiAssistantService` (27 Nov); the AI demonstration plan. `CustomerMenu` and `AiModeMenu` are on the **critical path** at the end.
+**Others are waiting for:** AI contracts (19 Nov) → P1 for review; `AppConfig` (21 Nov) → P1, P3, P5; an empty `CustomerMenu` (27 Nov) → P5's `StartMenu`; working `AiAssistantService` (29 Nov); the AI demonstration plan. `CustomerMenu` and `AiModeMenu` are on the **critical path** at the end.
 
-**You need from others:** exception base class (P4, 13 Nov); `ConsoleHelper` and `Menu` (P3, 16–17 Nov); `CatalogueService` and `LocalityService` (P5, 21 Nov); `SearchService` (P1, 26 Nov; signature fixed in HLD 4.7).
+**You need from others:** exception base class (P4, 15 Nov); `ConsoleHelper` and `Menu` (P3, 18–19 Nov); `CatalogueService` and `LocalityService` (P5, 23 Nov); `SearchService` (P1, 28 Nov; signature fixed in HLD 4.7).
 
 ## Part 9 — Design Rules for Your Classes
 
