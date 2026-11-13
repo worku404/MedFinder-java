@@ -129,6 +129,60 @@ Operations are described as: **name (inputs) → output; refused with: exception
 
 **Location (value object).** `final` class with `final` fields. Two locations with the same region and district are equal (compared ignoring case and extra spaces). `matchLevel(other)` returns SAME_DISTRICT when region and district are equal, otherwise OTHER_AREA. The code word is **district**; the label shown to users ("Sub-city") comes from the settings.
 
+### 4.1a Model Accessor and Constructor Contracts
+
+> **Why this section exists:** team members work in parallel and may use separate AI tools. To guarantee that independently written code compiles when merged, the exact constructor parameter order and accessor names are fixed here. **If your AI tool asks you to paste another member's Java file, give it this section instead.**
+
+**Accessor naming rule.** All model entities and value objects use **JavaBean-style** getters: `getId()`, `getName()`, `getStatus()`, `getPrice()`, `isActive()` (for booleans). The only exceptions are:
+
+- **Enums** use bare accessors: `label()`, `value()` (for `Freshness`).
+- **`User.role()`** is `abstract` and bare because it is overridden in subclasses (HLD 4.1).
+- **`Session`** uses bare accessors: `currentUser()`, `district()`.
+- **`AiOutcome`** uses bare accessors: `kind()`, `keywords()`, `subCity()`, `notice()`.
+- **`Location`** uses `getRegion()`, `getDistrict()`, plus the bare method `matchLevel(Location other)`.
+
+**Constructor signatures (parameter order matches the CSV column order in Section 5.1).**
+
+```
+Location(String region, String district)
+
+User(int id, String fullName, String email, String passwordHash)          — abstract
+Pharmacist(int id, String fullName, String email, String passwordHash)    — calls super(...)
+Administrator(int id, String fullName, String email, String passwordHash) — calls super(...)
+
+Medicine(int id, String name, String category, String dosageForm,
+         String strength, boolean prescriptionRequired, boolean active)
+Medicine(int id, String name, String category, String dosageForm,         — chains with this(...)
+         String strength)                                                   sets prescriptionRequired=false, active=true
+
+Pharmacy — new registration constructor:
+Pharmacy(int id, String name, String licenceNumber, Location location,
+         String address, int ownerUserId)                                 — status=PENDING, rejectionReason=null
+
+Pharmacy — full constructor (loading from file):
+Pharmacy(int id, String name, String licenceNumber, Location location,
+         String address, PharmacyStatus status, String rejectionReason,
+         int ownerUserId)
+
+StockRecord — full constructor:
+StockRecord(int pharmacyId, int medicineId, int quantity, double price,
+            Instant lastConfirmedAt)
+
+StockRecord — convenience constructor (chains with this(...)):
+StockRecord(int pharmacyId, int medicineId, int quantity, double price,
+            Instant now)                                                  — same as full; "now" = lastConfirmedAt
+
+SearchResult(Medicine medicine, Pharmacy pharmacy, double price,
+             int quantity, MatchLevel matchLevel, Freshness freshness,
+             double score)                                                — immutable, all final
+```
+
+**Pharmacy mutation methods** (no other way to change status):
+`approve()`, `reject(String reason)`, `resubmit()`, `changeDetails(String name, String licenceNumber, Location location, String address)`.
+
+**StockRecord mutation methods:**
+`reconfirm(Instant now)`, `update(int quantity, double price, Instant now)`.
+
 ### 4.2 Session and AuthService
 
 | Operation | Behaviour | Refused with |
