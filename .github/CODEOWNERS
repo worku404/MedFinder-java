@@ -1,0 +1,115 @@
+# ==============================================================================
+# MedFinder — GitHub CODEOWNERS
+# Aligned with docs/03-architecture-and-folder-structure.md (Section 5)
+# and docs/04-implementation-plan.md (Section 7.2 Review Pairs):
+#
+#   P1 (Worku)     @worku404             -> Reviewed by P2 @Tensaye-Daniel
+#   P2 (Tensaye)   @Tensaye-Daniel       -> Reviewed by P1 @worku404
+#   P3 (Wubet)     @wubettamrat525-prog  -> Reviewed by P2 @Tensaye-Daniel
+#   P4 (Tesnim)    @tesnimabdi16-netizen -> Reviewed by P3 @wubettamrat525-prog
+#   P5 (Yamsin)    @Amuni                -> Reviewed by P3 @wubettamrat525-prog
+# ==============================================================================
+
+# Default fallback (Project Manager / Integrator)
+* @worku404
+
+# ------------------------------------------------------------------------------
+# P1: Worku Wondoson (@worku404) — Reviewed by P2 (@Tensaye-Daniel)
+# ------------------------------------------------------------------------------
+/pom.xml                                                 @worku404 @Tensaye-Daniel
+/README.md                                               @worku404 @Tensaye-Daniel
+/.gitignore                                              @worku404 @Tensaye-Daniel
+
+/src/main/java/medfinder/Main.java                       @worku404 @Tensaye-Daniel
+/src/main/java/medfinder/AppContext.java                 @worku404 @Tensaye-Daniel
+/src/main/java/medfinder/model/SearchResult.java         @worku404 @Tensaye-Daniel
+/src/main/java/medfinder/logic/TextSimilarity.java       @worku404 @Tensaye-Daniel
+/src/main/java/medfinder/service/SearchService.java      @worku404 @Tensaye-Daniel
+
+/src/main/java/medfinder/repository/UserRepository.java      @worku404 @Tensaye-Daniel
+/src/main/java/medfinder/repository/PharmacyRepository.java  @worku404 @Tensaye-Daniel
+/src/main/java/medfinder/repository/MedicineRepository.java  @worku404 @Tensaye-Daniel
+/src/main/java/medfinder/repository/StockRepository.java     @worku404 @Tensaye-Daniel
+/src/main/java/medfinder/repository/LocalityRepository.java  @worku404 @Tensaye-Daniel
+
+/src/main/java/medfinder/repository/file/CsvFile.java            @worku404 @Tensaye-Daniel
+/src/main/java/medfinder/repository/file/RowMapper.java          @worku404 @Tensaye-Daniel
+/src/main/java/medfinder/repository/file/FileUserRepository.java @worku404 @Tensaye-Daniel
+/src/main/java/medfinder/repository/file/SeedDataCopier.java     @worku404 @Tensaye-Daniel
+
+/src/test/java/medfinder/logic/TextSimilarityTest.java   @worku404 @Tensaye-Daniel
+
+
+# ------------------------------------------------------------------------------
+# P2: Tensaye Daniel (@Tensaye-Daniel) — Reviewed by P1 (@worku404)
+# ------------------------------------------------------------------------------
+/config/config.properties.example                        @Tensaye-Daniel @worku404
+/src/main/java/medfinder/config/AppConfig.java           @Tensaye-Daniel @worku404
+/src/main/java/medfinder/exception/AiServiceException.java @Tensaye-Daniel @worku404
+
+/src/main/java/medfinder/ai/                             @Tensaye-Daniel @worku404
+/src/main/resources/ai/                                  @Tensaye-Daniel @worku404
+/src/main/java/medfinder/console/CustomerMenu.java       @Tensaye-Daniel @worku404
+/src/main/java/medfinder/console/AiModeMenu.java         @Tensaye-Daniel @worku404
+
+/src/test/java/medfinder/support/FakeLlmClient.java      @Tensaye-Daniel @worku404
+/src/test/java/medfinder/ai/                             @Tensaye-Daniel @worku404
+
+
+# ------------------------------------------------------------------------------
+# P3: Wubet Tamrat (@wubettamrat525-prog) — Reviewed by P2 (@Tensaye-Daniel)
+# ------------------------------------------------------------------------------
+/src/main/java/medfinder/logic/PasswordHasher.java       @wubettamrat525-prog @Tensaye-Daniel
+/src/main/java/medfinder/service/Session.java            @wubettamrat525-prog @Tensaye-Daniel
+/src/main/java/medfinder/service/AuthService.java        @wubettamrat525-prog @Tensaye-Daniel
+/src/main/java/medfinder/service/PharmacyService.java    @wubettamrat525-prog @Tensaye-Daniel
+/src/main/java/medfinder/service/InventoryService.java   @wubettamrat525-prog @Tensaye-Daniel
+/src/main/java/medfinder/console/ConsoleHelper.java      @wubettamrat525-prog @Tensaye-Daniel
+/src/main/java/medfinder/console/Menu.java               @wubettamrat525-prog @Tensaye-Daniel
+
+
+# ------------------------------------------------------------------------------
+# P4: Tesnim Abdi (@tesnimabdi16-netizen) — Reviewed by P3 (@wubettamrat525-prog)
+# ------------------------------------------------------------------------------
+/src/main/java/medfinder/model/Role.java                 @tesnimabdi16-netizen @wubettamrat525-prog
+/src/main/java/medfinder/model/PharmacyStatus.java       @tesnimabdi16-netizen @wubettamrat525-prog
+/src/main/java/medfinder/model/Freshness.java            @tesnimabdi16-netizen @wubettamrat525-prog
+/src/main/java/medfinder/model/MatchLevel.java           @tesnimabdi16-netizen @wubettamrat525-prog
+/src/main/java/medfinder/model/Location.java             @tesnimabdi16-netizen @wubettamrat525-prog
+/src/main/java/medfinder/model/User.java                 @tesnimabdi16-netizen @wubettamrat525-prog
+/src/main/java/medfinder/model/Pharmacist.java           @tesnimabdi16-netizen @wubettamrat525-prog
+/src/main/java/medfinder/model/Administrator.java        @tesnimabdi16-netizen @wubettamrat525-prog
+/src/main/java/medfinder/model/Medicine.java             @tesnimabdi16-netizen @wubettamrat525-prog
+/src/main/java/medfinder/model/Pharmacy.java             @tesnimabdi16-netizen @wubettamrat525-prog
+/src/main/java/medfinder/model/StockRecord.java          @tesnimabdi16-netizen @wubettamrat525-prog
+
+/src/main/java/medfinder/exception/MedFinderException.java     @tesnimabdi16-netizen @wubettamrat525-prog
+/src/main/java/medfinder/exception/ValidationException.java    @tesnimabdi16-netizen @wubettamrat525-prog
+/src/main/java/medfinder/exception/AuthorizationException.java @tesnimabdi16-netizen @wubettamrat525-prog
+/src/main/java/medfinder/exception/NotFoundException.java      @tesnimabdi16-netizen @wubettamrat525-prog
+/src/main/java/medfinder/exception/DataStorageException.java   @tesnimabdi16-netizen @wubettamrat525-prog
+
+/src/main/java/medfinder/logic/FreshnessClassifier.java        @tesnimabdi16-netizen @wubettamrat525-prog
+/src/main/java/medfinder/console/PharmacistMenu.java           @tesnimabdi16-netizen @wubettamrat525-prog
+
+/src/test/java/medfinder/logic/FreshnessClassifierTest.java    @tesnimabdi16-netizen @wubettamrat525-prog
+/src/test/java/medfinder/model/LocationTest.java               @tesnimabdi16-netizen @wubettamrat525-prog
+/src/test/java/medfinder/model/PharmacyTest.java               @tesnimabdi16-netizen @wubettamrat525-prog
+
+
+# ------------------------------------------------------------------------------
+# P5: Yamsin Mustefa (@Amuni) — Reviewed by P3 (@wubettamrat525-prog)
+# ------------------------------------------------------------------------------
+/src/main/java/medfinder/repository/file/FilePharmacyRepository.java @Amuni @wubettamrat525-prog
+/src/main/java/medfinder/repository/file/FileStockRepository.java    @Amuni @wubettamrat525-prog
+/src/main/java/medfinder/repository/file/FileMedicineRepository.java @Amuni @wubettamrat525-prog
+/src/main/java/medfinder/repository/file/FileLocalityRepository.java @Amuni @wubettamrat525-prog
+
+/src/main/java/medfinder/service/LocalityService.java                @Amuni @wubettamrat525-prog
+/src/main/java/medfinder/service/CatalogueService.java               @Amuni @wubettamrat525-prog
+
+/src/main/java/medfinder/console/StartMenu.java                      @Amuni @wubettamrat525-prog
+/src/main/java/medfinder/console/AdministratorMenu.java              @Amuni @wubettamrat525-prog
+
+/src/main/resources/seed/                                            @Amuni @wubettamrat525-prog
+/docs/test-cases.md                                                  @Amuni @wubettamrat525-prog
