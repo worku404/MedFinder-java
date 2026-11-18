@@ -30,6 +30,11 @@ target/
 /data/
 /config/config.properties
 
+# Local secrets: keep the real .env private, commit .env.example instead
+/.env
+/.env.local
+!/.env.example
+
 # IDE and OS files (personal, never committed)
 .idea/
 *.iml
